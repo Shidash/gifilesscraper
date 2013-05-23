@@ -22,7 +22,7 @@ end
 # Gets URLs and data for gifiles emails
 def getAllEmails(url)
   url.each do |u|
-    getEmailURL(u) 
+    getEmailURL(u)  
   end
 end
 
@@ -41,6 +41,7 @@ def getEmailURL(url)
     end
   end
   
+  getSetTitle(doc)
   emailurl.each do |u|
     getEmail(u)
   end
@@ -80,11 +81,22 @@ def getEmailContent(doc)
   return (doc.css('div#doc-description')[0]).content
 end
 
+#Get title of the set of documents
+def getSetTitle(doc)
+  headline = (doc.css('h2')[0]).content
+  headline = headline.split("Release ")
+  setheadline = {
+    emailheadline: headline[1]
+  }
+  ScraperWiki::save_sqlite(['emailheadline'], setheadline)
+  return headline[1]
+end
+
 #To get all emails:
 #getAllEmails(getReleaseURL)
 
 #To get all emails for a single gifiles release:
-#getEmailURL(paste URL for gifiles release here)
+#getEmailURL(paste release page URL here)
 
 #To scrape a single email:
 #getEmail(paste email URL here)
