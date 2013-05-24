@@ -1,5 +1,6 @@
 # Scraper for WikiLeaks Global Intelligence Files
 require 'nokogiri'
+require 'scraperwiki'
 
 # Gets the URLs of all Global Intelligence File releases
 def getReleaseURL
@@ -96,7 +97,7 @@ end
 #getAllEmails(getReleaseURL)
 
 #To get all emails for a single gifiles release:
-#getEmailURL(paste release page URL here)
+#getEmailURL(paste release page url here)
 
 #To scrape a single email:
 #getEmail(paste email URL here)

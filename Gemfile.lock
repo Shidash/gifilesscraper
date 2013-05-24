@@ -1,0 +1,12 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    nokogiri (1.5.9)
+    scraperwiki (2.0.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  nokogiri
+  scraperwiki
